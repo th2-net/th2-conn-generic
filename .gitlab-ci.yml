@@ -1,0 +1,44 @@
+include:
+  - project: 'vivarium/th2/pipelines'
+    ref: master
+    file: '/.gitlab-ci-multi-docker.yml'
+
+variables:
+  APP_NAME: "th2-conn-generic"
+  MAJOR_VERSION: "2"
+  MINOR_VERSION: "0"
+  MAINTENANCE_VERSION: '2'
+
+.resolve-multi-image-name: &resolve-multi-image-name
+  - |
+    APP_NAME="th2-${PROJECT_NAME}"
+    if [ $SOLUTION == "true" ]; then
+      IMAGE_NAME=${SOLUTION_REGISTRY}/${APP_NAME}
+    else
+      IMAGE_NAME=${REGISTRY}/${APP_NAME}
+    fi
+
+    IMAGE_VERSION_LABEL=com.exactpro.th2.${APP_NAME}.version
+
+build-dockers-context:
+  extends: .build-dockers-context-template
+
+build-dockers:
+  extends: .build-dockers-template
+  before_script:
+    - *resolve-multi-image-name
+  parallel:
+    matrix:
+      - PROVIDER: conns
+        PROJECT_NAME:
+          - conn-fix
+
+dockers-publish:
+  extends: .dockers-publish-template
+  before_script:
+    - *resolve-multi-image-name
+  parallel:
+    matrix:
+      - PROVIDER: conns
+        PROJECT_NAME:
+          - conn-fix

@@ -1,0 +1,85 @@
+plugins {
+    id 'com.palantir.docker' version '0.25.0' apply false
+}
+
+subprojects {
+    apply plugin: 'base'
+    apply plugin: 'com.palantir.docker'
+
+    ext {
+        sharedDir                     = file("${project.rootDir}/shared")
+
+        sailfishVersion               = '3.2'
+
+        pluginMainDir                 = file('src/main/plugin')
+        pluginGenDir                  = file('src/gen/plugin')
+        versionFile                   = file("${pluginGenDir}/VERSION")
+        dockerSailfishWorkspaceDir    = 'sailfish/workspace/plugins/th2_service'
+        dockerSailfishWorkspaceLibDir = "${dockerSailfishWorkspaceDir}/libs"
+    }
+
+    repositories {
+        maven {
+            name 'MavenLocal'
+            url sharedDir
+        }
+        mavenCentral()
+        maven {
+            name 'Artifactory'
+            url 'http://artifactory5.exp.exactpro.com/artifactory/libs-snapshot'
+        }
+
+        configurations.all {
+            resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+            resolutionStrategy.cacheDynamicVersionsFor 0, 'seconds'
+        }
+    }
+
+    configurations {
+        service
+    }
+
+    dependencies {
+        service ("com.exactpro.sf:${sf_service_name}:${sailfishVersion}-SNAPSHOT") {
+            exclude module: 'sailfish-core'
+            exclude module: 'sailfish-common'
+        }
+    }
+
+    task pluginWriteVersion {
+        outputs.file versionFile
+        doLast{
+            versionFile.write "lightweight: true\n" +
+                              "plugin_alias: th2_service\n" +
+                              "name: th2_service\n" +
+                              "build_number: 0\n" +
+                              "revision: 0\n" +
+                              "git_hash: 0\n" +
+                              "branch: fake\n" +
+                              "version: ${sailfishVersion}.0.0\n" +
+                              "core_version: ${sailfishVersion}.0"
+        }
+    }
+
+    dockerPrepare {
+        dependsOn pluginWriteVersion
+    }
+
+    docker {
+        copySpec.with {
+            from(configurations.service) {
+                into dockerSailfishWorkspaceLibDir
+            }
+            from(pluginMainDir) {
+                into dockerSailfishWorkspaceDir
+            }
+            from(pluginGenDir) {
+                into dockerSailfishWorkspaceDir
+            }
+        }
+    }
+
+    clean {
+        delete(pluginGenDir)
+    }
+}
