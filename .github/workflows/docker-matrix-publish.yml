@@ -39,5 +39,5 @@ jobs:
           build-args: |
             project_name=${{ matrix.proto }}
           push: true
-          tags: ghcr.io/th2-${{ matrix.proto }}:${{ steps.read_property.outputs.value }}
+          tags: ghcr.io/th2-net/th2-${{ matrix.proto }}:${{ steps.read_property.outputs.value }}
           labels: com.exactpro.th2.th2-${{ matrix.proto }}=${{ steps.read_property.outputs.value }}
