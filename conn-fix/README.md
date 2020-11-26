@@ -9,40 +9,40 @@ This "Connect" component provides users with two types of the services:
 ### FIX Client
 
 The "Connect" component acts like a client that connects to the system.
-The type to use in the configuration - **FIX_Client**.
+The configuration type that needs to be used is - **FIX_Client**.
 
 #### Configurable parameters
 
-The FIX Client has following parameters to configure:
+The FIX Client has the following parameters to configure:
 ```yaml
-# It is required param. Version of FIX this session should use.
+# It is a required parameter. It's the FIX version that this session should use.
 # Possible values: "FIX.4.0", "FIX.4.1", "FIX.4.2", "FIX.4.3", "FIX.4.4", "FIXT.1.1"
 beginString: FIXT.1.1
 
-# It is required param. Your ID as associated with this FIX session.
+# It is a required parameter. Your ID that is associated with this FIX session.
 senderCompID: sender
 
-# It is required param. Counter parties ID as associated with this FIX session.
+# It is a required parameter. Counter Parties ID that is associated with this FIX session.
 targetCompID: target
 
-# It is required param. Directory to store sequence number and message files inside the workspace directory.
+# It is a required parameter. Directory to store sequence number and message files inside the workspace directory.
 fileStorePath: store/fix/sessions
 
-# It is required param. Time of day that this FIX session becomes activated.
+# It is a required parameter. Time of day that this FIX session becomes activated.
 # time in the format of HH:MM:SS, time is represented in UTC.
 # If the session creation time is not between StartTime and EndTime the session state will be reset (incoming / outgoing sequences and message cache will be drop).
 # The bounds move daily. That means next day after the start at 'EndTime' the bounds will be moved
 # Format of value is 99:99:99
 startTime: 00:00:00
 
-# It is required param. Time of day that this FIX session becomes deactivated.
+# It is a required parameter. Time of day that this FIX session becomes deactivated.
 # time in the format of HH:MM:SS, time is represented in UTC.
 # If the session creation time is not between StartTime and EndTime the session state will be reset (incoming / outgoing sequences and message cache will be drop).
 # The bounds move daily. That means next day after the start at 'EndTime' the bounds will be moved
 # Format of value is 99:99:99
 endTime: 00:00:00
 
-# It is required param.
+# It is a required parameter.
 # Specifies the default application version ID for the session.
 # This can either be the ApplVerID enum (see the ApplVerID field) or the BeginString for the default version.
 # Possible values: "2", "3", "4", "5", "6", "7", "8", "9"
@@ -130,7 +130,7 @@ senderSubID: ""
 # TargetSubId value. If it is empty it won't be set in the sent message's header
 targetSubID: ""
 
-# It is required param. Host to connect to.
+# It is a required parameter. Host to connect to.
 # Valid IP address in the format of x.x.x.x or a domain name.
 socketConnectHost: localhost
 
@@ -142,7 +142,7 @@ startDate: ""
 # Day of week in English using any abbreviation (i.e. mo, mon, mond, monda, monday are all valid).
 endDate: ""
 
-# It is required param. Heartbeat interval in seconds.
+# It is a required parameter. Heartbeat interval in seconds.
 # Positive integer.
 heartBtInt: 5
 
@@ -153,7 +153,7 @@ reconnectInterval: 5
 # Use tag DefaultApplVerID in Logon message or not
 useDefaultApplVerID: true
 
-# It is required param. Socket port for connecting to a session.\nPositive integer
+# It is a required parameter. Socket port for connecting to a session.\nPositive integer
 socketConnectPort: 12345
 
 # Value of Username(553) tag used in Logon(A) message
@@ -218,40 +218,40 @@ requiresOrigSendingTime: true
 ### FIX Server
 
 The "Connect" component acts like a server and waits for a client to connect.
-The type to use in the configuration - **FIX_Server**.
+The configuration type that needs to be used is - **FIX_Server**.
 
 #### Configurable parameters
 
-The FIX Server has following parameters to configure:
+The FIX Server has the following parameters to configure:
 ```yaml
-# It is required param. Version of FIX this session should use.
+# It is a required parameter. It's the FIX version that this session should use.
 # Possible values: "FIX.4.0", "FIX.4.1", "FIX.4.2", "FIX.4.3", "FIX.4.4", "FIXT.1.1"
 beginString: FIXT.1.1
 
-# It is required param. Your ID as associated with this FIX session.
+# It is a required parameter. Your ID that is associated with this FIX session.
 senderCompID: sender
 
-# It is required param. Counter parties ID as associated with this FIX session.
+# It is a required parameter. Counter Parties ID that is associated with this FIX session.
 targetCompID: target
 
-# It is required param. Directory to store sequence number and message files inside the workspace directory.
+# It is a required parameter. Directory to store sequence number and message files inside the workspace directory.
 fileStorePath: store/fix/sessions
 
-# It is required param. Time of day that this FIX session becomes activated.
+# It is a required parameter. Time of day that this FIX session becomes activated.
 # time in the format of HH:MM:SS, time is represented in UTC.
 # If the session creation time is not between StartTime and EndTime the session state will be reset (incoming / outgoing sequences and message cache will be drop).
 # The bounds move daily. That means next day after the start at 'EndTime' the bounds will be moved
 # Format of value is 99:99:99
 startTime: 00:00:00
 
-# It is required param. Time of day that this FIX session becomes deactivated.
+# It is a required parameter. Time of day that this FIX session becomes deactivated.
 # time in the format of HH:MM:SS, time is represented in UTC.
 # If the session creation time is not between StartTime and EndTime the session state will be reset (incoming / outgoing sequences and message cache will be drop).
 # The bounds move daily. That means next day after the start at 'EndTime' the bounds will be moved
 # Format of value is 99:99:99
 endTime: 00:00:00
 
-# It is required param.
+# It is a required parameter.
 # Specifies the default application version ID for the session.
 # This can either be the ApplVerID enum (see the ApplVerID field) or the BeginString for the default version.
 # Possible values: "2", "3", "4", "5", "6", "7", "8", "9"
@@ -333,7 +333,7 @@ orderingFields: false
 # * if higher, send a resend request
 validateSequenceNumbers: true
 
-# It is required param.
+# It is a required parameter.
 # Socket port for listening to incoming connections from client.
 socketAcceptPort: 1234 
 
