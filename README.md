@@ -1,10 +1,10 @@
 # Generic connects
 
-This project contains extensions for base "[Connect](https://github.com/th2-net/th2-conn)" component
-to support communication with the target system using common protocols.
+This project contains extensions for the base component "[Connect](https://github.com/th2-net/th2-conn)" component
+to support communication with the target system by using common protocols.
 
-Currently, it contains extensions for following protocols:
-+ FIX
+Currently, it contains extensions for the following protocols:
++ [fix](conn-fix/README.md)
 
 ## Build connects
 
