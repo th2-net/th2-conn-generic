@@ -1,14 +1,14 @@
 # FIX Connect
 
-This "Connect" component extension supports connection to the target system via [FIX protocol](https://www.fixtrading.org/what-is-fix/).
+This "Connect" component extension supports connections to the target system via [FIX protocol](https://www.fixtrading.org/what-is-fix/).
 
 ## Available service types
 
-This "Connect" component provides users with two types of the services:
+This "Connect" component provides users with two types of services:
 
 ### FIX Client
 
-The "Connect" component acts like a client that connects to the system.
+The "Connect" component acts like a client that connects to the target system.
 The configuration type that needs to be used is - **FIX_Client**.
 
 #### Configurable parameters
@@ -22,23 +22,23 @@ beginString: FIXT.1.1
 # It is a required parameter. Your ID that is associated with this FIX session.
 senderCompID: sender
 
-# It is a required parameter. Counter Parties ID that is associated with this FIX session.
+# It is a required parameter. Counter Parties ID that are associated with this FIX session.
 targetCompID: target
 
 # It is a required parameter. Directory to store sequence number and message files inside the workspace directory.
 fileStorePath: store/fix/sessions
 
-# It is a required parameter. Time of day that this FIX session becomes activated.
+# It is a required parameter. Time of the day that this FIX session becomes activated.
 # time in the format of HH:MM:SS, time is represented in UTC.
-# If the session creation time is not between the StartTime and the EndTime, the session state will be reset (incoming / outgoing sequences and message cache will be drop).
-# The bounds move daily. So it means that, in the next day after the start at 'EndTime' the bounds will be moved
+# If the session creation time is not between the StartTime and the EndTime, the session state will be reset (incoming / outgoing sequences and message cache will be dropped).
+# The bounds move daily. So it means that, in the next day after the start at 'EndTime', the bounds will be moved
 # Format of the value is 99:99:99
 startTime: 00:00:00
 
-# It is a required parameter. Time of day that this FIX session becomes deactivated.
+# It is a required parameter. Time of the day that this FIX session becomes deactivated.
 # time in the format of HH:MM:SS, time is represented in UTC.
-# If the session creation time is not between the StartTime and the EndTime, the session state will be reset (incoming / outgoing sequences and message cache will be drop).
-# The bounds move daily. So it means that, in the next day after the start at 'EndTime' the bounds will be moved
+# If the session creation time is not between the StartTime and the EndTime, the session state will be reset (incoming / outgoing sequences and message cache will be dropped).
+# The bounds move daily. So it means that, in the next day after the start at 'EndTime', the bounds will be moved
 # Format of the value is 99:99:99
 endTime: 00:00:00
 
@@ -54,10 +54,10 @@ resetOnLogout: false
 # Determines if the sequence numbers should be reset to 1, after an abnormal termination
 resetOnDisconnect: false
 
-# Save Heartbeats to logs or not.
+# If this parameter is set to true, it will save Heartbeats to logs.
 logHeartbeats: false
 
-# Check required tags or not.
+# If it is set to true, it will check required tags.
 checkRequiredTags: true
 
 # If this is set to true (checked), messages must be received from the counterparty within a defined number of seconds (refer to MaxLatency).
@@ -73,7 +73,7 @@ allowUnknownMsgFields: false
 # Determines if milliseconds should be added to timestamp fields. Only available for AML 3
 millisecondsInTimeStampFields: true
 
-# Determines if microseconds should be added to timestamp fields. Only available for AML 3. This value is more priority than 'Milliseconds In Time Stamp Fields'
+# Determines if microseconds should be added to timestamp fields. Only available for AML 3. This value is more prioritized than 'Milliseconds In Time Stamp Fields'
 microsecondsInTimeStampFields: false
 
 # Receive limit in bytes to emulate Slow Consumer
@@ -134,11 +134,11 @@ targetSubID: ""
 # Valid IP address in the format of x.x.x.x or a domain name.
 socketConnectHost: localhost
 
-# For week long sessions, the starting day of week for the session. Use in combination with StartTime.
+# For week long sessions, it is the starting day of the week for the session. Used in combination with StartTime.
 # Day of the week in English using any abbreviation (i.e. mo, mon, mond, monda, monday are all valid).
 startDate: ""
 
-# For week long sessions, the ending day of week for the session. Use in combination with EndTime.
+# For week long sessions, it is the ending day of the week for the session. Used in combination with EndTime.
 # Day of the week in English using any abbreviation (i.e. mo, mon, mond, monda, monday are all valid).
 endDate: ""
 
@@ -150,7 +150,7 @@ heartBtInt: 5
 # Positive integer
 reconnectInterval: 5
 
-# Use tag DefaultApplVerID in Logon message or not
+# The tag DefaultApplVerID might be used in Logon message or not
 useDefaultApplVerID: true
 
 # It is a required parameter. Socket port for connecting to a session.\nPositive integer
@@ -192,11 +192,11 @@ doLogonOnStart: true
 defaultCstmApplVerID: ""
 
 # Sender initial sequence number.
-# It is applied when service starts.
+# It is applied when the service starts.
 seqNumSender: 0
 
 # The target initial sequence number.
-# It is applied when service starts.
+# It is applied when the service starts.
 seqNumTarget: 0
 
 # Add NextExpectedMsgSeqNum(789) tag into Logon(A) message
@@ -231,23 +231,23 @@ beginString: FIXT.1.1
 # It is a required parameter. Your ID that is associated with this FIX session.
 senderCompID: sender
 
-# It is a required parameter. Counter Parties ID that is associated with this FIX session.
+# It is a required parameter. Counter Parties ID that are associated with this FIX session.
 targetCompID: target
 
 # It is a required parameter. Directory to store sequence number and message files inside the workspace directory.
 fileStorePath: store/fix/sessions
 
-# It is a required parameter. Time of day that this FIX session becomes activated.
+# It is a required parameter. Time of the day that this FIX session becomes activated.
 # The time is in the format of HH:MM:SS, represented in UTC.
 # If the session creation time is not between the StartTime and the EndTime the session state will be reset (incoming / outgoing sequences and message cache will be dropped).
 # The bounds move daily. So it means that, in the next day after the start of 'EndTime', the bounds will be moved
 # Format of the value is 99:99:99
 startTime: 00:00:00
 
-# It is a required parameter. Time of day that this FIX session becomes deactivated.
+# It is a required parameter. Time of the day that this FIX session becomes deactivated.
 # time in the format of HH:MM:SS, time is represented in UTC.
-# If the session creation time is not between StartTime and EndTime the session state will be reset (incoming / outgoing sequences and message cache will be drop).
-# The bounds move daily. That means next day after the start at 'EndTime' the bounds will be moved
+# If the session creation time is not between StartTime and EndTime the session state will be reset (incoming / outgoing sequences and message cache will be dropped).
+# The bounds move daily. That means next day after the start at 'EndTime', the bounds will be moved
 # Format of value is 99:99:99
 endTime: 00:00:00
 
