@@ -239,28 +239,28 @@ fileStorePath: store/fix/sessions
 
 # It is a required parameter. Time of the day that this FIX session becomes activated.
 # The time is in the format of HH:MM:SS, represented in UTC.
-# If the session creation time is not between the StartTime and the EndTime the session state will be reset (incoming / outgoing sequences and message cache will be dropped).
+# If the session creation time is not between the StartTime and the EndTime, the session state will be reset (incoming / outgoing sequences and message cache will be dropped).
 # The bounds move daily. So it means that, in the next day after the start of 'EndTime', the bounds will be moved
 # Format of the value is 99:99:99
 startTime: 00:00:00
 
 # It is a required parameter. Time of the day that this FIX session becomes deactivated.
-# time in the format of HH:MM:SS, time is represented in UTC.
+# The time in the format of HH:MM:SS and is represented in UTC.
 # If the session creation time is not between StartTime and EndTime the session state will be reset (incoming / outgoing sequences and message cache will be dropped).
 # The bounds move daily. That means next day after the start at 'EndTime', the bounds will be moved
-# Format of value is 99:99:99
+# Format of the value is 99:99:99
 endTime: 00:00:00
 
 # It is a required parameter.
 # Specifies the default application version ID for the session.
 # This can either be the ApplVerID enum (see the ApplVerID field) or the BeginString for the default version.
-# Possible values: "2", "3", "4", "5", "6", "7", "8", "9"
+# The possible values are: "2", "3", "4", "5", "6", "7", "8", "9"
 defaultApplVerID: 9
 
-# Determines if sequence numbers should be reset to 1 after a normal logout termination
+# Determines if the sequence numbers should be reset to 1, after a normal logout termination
 resetOnLogout: false
 
-# Determines if sequence numbers should be reset to 1 after an abnormal termination
+# Determines if the sequence numbers should be reset to 1, after an abnormal termination
 resetOnDisconnect: false
 
 # Save Heartbeats to logs or not.
@@ -269,41 +269,41 @@ logHeartbeats: false
 # Check required tags or not.
 checkRequiredTags: true
 
-# If set to checked, messages must be received from the counterparty within a defined number of seconds (see MaxLatency).
+# If this is set to checked, messages must be received from the counterparty within a defined number of seconds  (refer to MaxLatency).
 # It is useful to turn this off if a system uses localtime for it's timestamps instead of GMT.
 checkLatency: false
 
-# If CheckLatency is set to checked, this defines the number of seconds latency allowed for a message to be processed. Default is 120.
+# If CheckLatency is set to true (checked), this defines the number of seconds latency allowed for a message to be processed. The default is 120.
 maxLatency: 120
 
-# If set to checked, allow unknown fields in messages. This is intended for unknown fields with tags < 5000 (not user defined fields).
+# If this is set to true (checked), it allow unknown fields in messages. This is intended for unknown fields with tags < 5000 (not user defined fields).
 allowUnknownMsgFields: false
 
 # Determines if milliseconds should be added to timestamp fields. Only available for AML 3
 millisecondsInTimeStampFields: true
 
-# Determines if microseconds should be added to timestamp fields. Only available for AML 3. This value is more priority than 'Milliseconds In Time Stamp Fields'
+# Determines if microseconds should be added to timestamp fields. Only available for AML 3. This value is more prioritized than 'Milliseconds In Time Stamp Fields'
 microsecondsInTimeStampFields: false
 
 # Receive limit in bytes to emulate Slow Consumer
 receiveLimit: 0
 
-# Client send reject if message is invalid
+# The client send rejects in case the message is invalid
 rejectInvalidMessage: true          
 
-# If set to unchecked, user defined fields will not be rejected if they are not defined in the data dictionary, or are present in messages they do not belong to.
+# If this is set to false (unchecked), the user defined fields will not be rejected if they are not defined in the data dictionary, or in case they are present in messages they do not belong to.
 validateUserDefinedFields: true
 
-# If set to unchecked, fields that are out of order (i.e. body fields in the header, or header fields in the body) will not be rejected. Useful for connecting to systems which do not properly order fields.
+# If this is set to false (unchecked), fields that are out of order (i.e. body fields in the header, or header fields in the body) will not be rejected. Useful for connecting to systems which do not properly order fields.
 validateFieldsOutOfOrder: true
 
-# If set to unchecked, messages which contain values not presented in the range will not be rejected.
+# If this is set to false (unchecked), messages which contain values not presented in the range will not be rejected.
 validateFieldsOutOfRange: true
 
-# If set to unchecked, fields without values (empty) will not be rejected. Useful for connecting to systems which improperly send empty tags.
+# If this is set to false (unchecked), fields without values (empty) will not be rejected. Useful for connecting to systems which improperly send empty tags.
 validateFieldsHaveValues: true
 
-# If set to checked, no reject sent on incoming message with duplicate tags Allow duplicated tags.
+# If this is set to true (checked), no reject sent on the incoming message with duplicate tags.
 duplicateTagsAllowed: false
 
 # If specified, the session start and end will be converted from default zone to UTC
@@ -312,48 +312,48 @@ useLocalTime: false
 # Enables SSL usage for QFJ acceptor or initiator
 useSSL: false
 
-# KeyStore to use with SSL
+# KeyStore that will be used with SSL
 sslKeyStore: ""
 
-# KeyStore password to use with SSL
+# KeyStore password that will be used with SSL
 sslKeyStorePassword: ""
 
-# Controls which particular protocols for secure connection are enabled for handshake
+# It controls which particular protocols for secure connection are enabled for handshake
 sslEnabledProtocols: ""
 
-# Controls which particular SSL cipher suites are enabled for secure connection
+# It controls which particular SSL cipher suites are enabled for secure connection
 sslCipherSuites: ""
 
-# Enables fields ordering in raw message by dictionary
+# It enables fields ordering in raw message by dictionary
 orderingFields: false
 
-# Check the next expected target SeqNum against the received SeqNum. Default is checked.
-# If a mismatch is detected, apply the following logic:
+# Checks the next expected target SeqNum against the received SeqNum. Checked by default.
+# If a mismatch is detected, the following logic is applied:
 # * if lower than expected SeqNum , logout
 # * if higher, send a resend request
 validateSequenceNumbers: true
 
 # It is a required parameter.
-# Socket port for listening to incoming connections from client.
+# Socket port for listening to incoming connections from the client.
 socketAcceptPort: 1234
 
-# Session setting that causes the session to reset sequence numbers when initiating a Logon
+# Session setting that causes the session to reset its sequence numbers when initiating a Logon
 resetOnLogon: false
 
-# Tells session whether or not to expect a data dictionary.
-# You should always use a DataDictionary if you are using repeating groups.
+# It tells the session whether or not to expect a data dictionary.
+# You should always use a DataDictionary, in case you are using repeating groups.
 useDataDictionary: true
 
-# Class name of the FIX Server application
-applicationClassName: com.exactpro.sf.services.fix.FIXTESTApplication
+# The class name of the FIX Server application implemented logic responsible for autonomous work.
+applicationClassName: com.exactpro.sf.services.fix.ServerApplication
 
-# Tells application to keep messages in memory and store them to DB or not
+# It tells the application to keep messages in memory and to store them into DB or not
 keepMessagesInMemory: true
 
-# if TRUE then server will not wait logout message from system and will close session immediately after sending its own logout
+# if it is set to true, then the server will not wait logout message from the system and will close the session immediately after sending its own logout
 forceDisconnectByDispose: false
 
-# The heartbeat interval in seconds that will be used if tag 108 absents in the client Logon message.
-# If this parameter has value less than ZERO it won't be used
+# The heartbeat interval (in seconds) that will be used, in case the tag 108 is absent in the client Logon message.
+# If this parameter has a negative value (less than ZERO), it won't be used
 defaultHeartbeatInterval: 5
 ```
