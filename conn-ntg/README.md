@@ -47,13 +47,13 @@ autosendHeartbeat: true
 # Version of the messages used in session.
 messageVersion: 1
 
-# Incativity service timeout in seconds after which service will be shout down automatically. If 0 - do not shoutdown service.
+# Inactivity service timeout in seconds after which service will be shut down automatically. If the value is set to 0 - do not shutdown the service.
 idleTimeout: 0
 
 # Send 'Logon' message at service startup
 doLoginOnStart: true
 
 # Reconnect will be executed with the specified timeout in milliseconds if service has lost the connection. 
-# If value is 0 (ZERO) service won't reconnect. For reconnect task work the following settings must be enabled: Do Login On Start, Autosend Heartbeat.
+# If the value is set to 0 (ZERO) , the service won't reconnect. In order for the reconnect task to work, the following settings must be enabled: Do Login On Start, Autosend Heartbeat.
 reconnectTimeout: 5000
 ```
