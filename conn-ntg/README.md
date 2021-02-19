@@ -29,9 +29,6 @@ logoutTimeout: 5000
 # Idle timeout in milliseconds (if no message has been sent then client must sent Heartbeat message)
 heartbeatTimeout: 30000
 
-# Quantity of reconnect attempts after server connection drop
-reconnectAttempts: 10
-
 # Number of missed Heartbeat messages forcing the client to break the connection.
 maxMissedHeartbeats: 5
 
@@ -53,5 +50,9 @@ messageVersion: 1
 idleTimeout: 0
 
 doLoginOnStart: true
+
+# Auto reconnection timeout in milliseconds
+reconnectingTimeout: 5000
+
 
 ```
