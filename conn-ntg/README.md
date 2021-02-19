@@ -51,7 +51,7 @@ idleTimeout: 0
 
 doLoginOnStart: true
 
-# Auto reconnection timeout in milliseconds
+# Reconnect will be executed with the specified timeout in milliseconds if service has lost the connection. 
+# If value is 0 (ZERO) service won't reconnect. For reconnect task work the following settings must be enabled: Do Login On Start, Autosend Heartbeat.
 reconnectTimeout: 5000
-
 ```
