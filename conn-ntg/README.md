@@ -26,7 +26,7 @@ loginTimeout: 30000
 # Logout timeout in milliseconds.
 logoutTimeout: 5000
 
-# Idle timeout in milliseconds (if no message has been sent then client must sent Heartbeat message)
+# Idle timeout in milliseconds (if no message has been sent then the client must sent a Heartbeat message)
 heartbeatTimeout: 30000
 
 # Number of missed Heartbeat messages forcing the client to break the connection.
@@ -41,14 +41,16 @@ password: "password"
 # User newPassword
 newPassword: ""
 
-# If true client sends heartbeat (response or timeout heartbeat).
+# If true, the client sends a heartbeat (response or timeout heartbeat).
 autosendHeartbeat: true
 
 # Version of the messages used in session.
 messageVersion: 1
 
+# Incativity service timeout in seconds after which service will be shout down automatically. If 0 - do not shoutdown service.
 idleTimeout: 0
 
+# Send 'Logon' message at service startup
 doLoginOnStart: true
 
 # Reconnect will be executed with the specified timeout in milliseconds if service has lost the connection. 
