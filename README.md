@@ -5,6 +5,7 @@ supporting communication with the target system by using common protocols.
 
 Currently, it contains extensions for the following protocols:
 + [fix](conn-fix/README.md)
++ [ntg](conn-ntg/README.md)
 
 ## Build connects
 

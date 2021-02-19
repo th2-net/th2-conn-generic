@@ -15,6 +15,7 @@ jobs:
       matrix:
         proto:
           - conn-fix
+          - conn-ntg
     steps:
       - uses: actions/checkout@v2
       - name: Set up Docker Buildx
