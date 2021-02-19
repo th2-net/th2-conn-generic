@@ -29,6 +29,7 @@ build-dockers:
       - PROVIDER: conns
         PROJECT_NAME:
           - conn-fix
+          - conn-ntg
 
 dockers-publish:
   extends: .dockers-publish-template
@@ -39,3 +40,4 @@ dockers-publish:
       - PROVIDER: conns
         PROJECT_NAME:
           - conn-fix
+          - conn-ntg
