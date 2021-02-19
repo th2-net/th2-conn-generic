@@ -52,7 +52,6 @@ idleTimeout: 0
 doLoginOnStart: true
 
 # Auto reconnection timeout in milliseconds
-reconnectingTimeout: 5000
-
+reconnectTimeout: 5000
 
 ```
