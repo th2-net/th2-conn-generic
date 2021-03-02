@@ -25,4 +25,4 @@ You can find the description for the available service types and their configura
 ## Release notes
 
 + 2.2.0
-  + Copy parent event id from incoming th2 message to the outgoing th2 message after sending
+  + Copies a parent event id from the incoming th2 message after it is sent to the outgoing th2 message
