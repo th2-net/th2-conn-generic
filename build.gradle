@@ -28,6 +28,10 @@ subprojects {
             name 'Bintray'
             url 'https://dl.bintray.com/exactpro/sailfish'
         }
+        maven {
+            name 'Artifactory-snapshot-oss'
+            url 'https://oss.jfrog.org/artifactory/libs-snapshot'
+        }
 
         configurations.all {
             resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
