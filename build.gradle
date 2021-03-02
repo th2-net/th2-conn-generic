@@ -8,8 +8,8 @@ subprojects {
 
     ext {
         sharedDir                     = file("${project.rootDir}/shared")
-
-        sailfishVersion               = '3.2-SNAPSHOT'
+        baseSailfishVersion           = '3.2'
+        sailfishVersion               = "${baseSailfishVersion}-SNAPSHOT"
 
         pluginMainDir                 = file('src/main/plugin')
         pluginGenDir                  = file('src/gen/plugin')
@@ -60,8 +60,8 @@ subprojects {
                               "revision: 0\n" +
                               "git_hash: 0\n" +
                               "branch: fake\n" +
-                              "version: ${sailfishVersion}.0.0\n" +
-                              "core_version: ${sailfishVersion}.0"
+                              "version: ${baseSailfishVersion}.0.0\n" +
+                              "core_version: ${baseSailfishVersion}.0"
         }
     }
 
