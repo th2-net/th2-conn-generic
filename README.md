@@ -19,7 +19,7 @@ For example, if you need to build "Connect" for the FIX protocol the `project_na
 NOTE: please, make sure that the folder which contains the subproject and the project name in Gradle are the same.
 
 ## Connect parameters and supported services types
-Each connect can support several service types and each one can have its own parameters to configure.
+Each connect extension can support several service types and each one can have its own parameters to configure.
 You can find the description for the available service types and their configurable parameters within subprojects folder.
 
 ## Release notes
