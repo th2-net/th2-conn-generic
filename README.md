@@ -1,4 +1,4 @@
-# Generic connects
+# Generic connects (3.0.0)
 
 This project contains extensions for the base component "[Connect](https://github.com/th2-net/th2-conn)", which is responsible for
 supporting communication with the target system by using common protocols.
@@ -21,3 +21,11 @@ NOTE: please, make sure that the folder which contains the subproject and the pr
 ## Connect parameters and supported services types
 Each connect can support several service types and each one can have its own parameters to configure.
 You can find the description for the available service types and their configurable parameters within subprojects folder.
+
+## Release notes
+
+### 3.0.0
++ Copies the parent event ID from the original raw message to the actual one;
++ Joins all related `IMessage`s to a single raw message;
++ Messages that were sent using this connectivity but did not have any parent event ID
+  are attached to the dedicated event for this connectivity.
