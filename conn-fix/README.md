@@ -11,12 +11,12 @@ This "Connect" component provides users with two types of services:
 The "Connect" component acts like a client that connects to the target system.
 The configuration type that needs to be used is - **FIX_Client**.
 
-This 'conn' decodes a message to send to update header. 
+This 'conn' decodes the message that should be sent and updates the header. 
 Full workflow is:
 1. Receives a raw message via MQ from th2.
 1. Parses the raw message to the internal format.
-1. Updates the header of the parsed message according current session state.
-1. Encodes the message to byte format and sends it to the remote system.
+1. Updates the header from the parsed message according to the current session state.
+1. Encodes the message to bytes and sends them to the remote system.
 
 #### Configurable parameters
 
