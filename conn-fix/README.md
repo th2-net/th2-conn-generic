@@ -1,4 +1,4 @@
-# FIX Connect
+# FIX Connect (3.1.0)
 
 This "Connect" component extension supports connections to the target system via [FIX protocol](https://www.fixtrading.org/what-is-fix/).
 
@@ -10,6 +10,13 @@ This "Connect" component provides users with two types of services:
 
 The "Connect" component acts like a client that connects to the target system.
 The configuration type that needs to be used is - **FIX_Client**.
+
+This 'conn' decodes the message that should be sent and updates the header. 
+Full workflow is:
+1. Receives a raw message via MQ from th2.
+1. Parses the raw message to the internal format.
+1. Updates the header from the parsed message according to the current session state.
+1. Encodes the message to bytes and sends them to the remote system.
 
 #### Configurable parameters
 
@@ -357,3 +364,8 @@ forceDisconnectByDispose: false
 # If this parameter has a negative value (less than ZERO), it won't be used
 defaultHeartbeatInterval: 5
 ```
+
+## Release notes
+
+### 3.1.0
++ Validates a message to send by the configured dictionary during decoding for the future a header update.
