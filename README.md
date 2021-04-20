@@ -1,4 +1,4 @@
-# Generic connects (3.1.0)
+# Generic connects (3.2.0)
 
 This project contains extensions for the base component "[Connect](https://github.com/th2-net/th2-conn)", which is responsible for
 supporting communication with the target system by using common protocols.
@@ -23,6 +23,13 @@ Each connect can support several service types and each one can have its own par
 You can find the description for the available service types and their configurable parameters within subprojects folder.
 
 ## Release notes
+
+### 3.2.0
+
++ reads dictionaries from the /var/th2/config/dictionary folder.
++ uses mq_router, grpc_router, cradle_manager optional JSON configs from the /var/th2/config folder
++ tries to load log4j.properties files from sources in order: '/var/th2/config', '/home/etc', configured path via cmd, default configuration
++ update Cradle version. Introduce async API for storing events
 
 ### 3.1.0
 + Validates configured dictionaries during initialization
