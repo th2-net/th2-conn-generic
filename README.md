@@ -1,4 +1,4 @@
-# Generic connects (3.2.1)
+# Generic connects (3.2.2)
 
 This project contains extensions for the base component "[Connect](https://github.com/th2-net/th2-conn)", which is responsible for
 supporting communication with the target system by using common protocols.
@@ -23,6 +23,12 @@ Each connect can support several service types and each one can have its own par
 You can find the description for the available service types and their configurable parameters within subprojects folder.
 
 ## Release notes
+
+### 3.2.2
+
++ Added maxMessageBatchSize option to configure limitation of message batch size 
++ Added enableMessageSendingEvent option to manage the event emitted related to sent messages
++ Produce th2_conn_incoming_msg_quantity / th2_conn_outgoing_msg_quantity metrics
 
 ### 3.2.1
 
