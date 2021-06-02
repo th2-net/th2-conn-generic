@@ -30,6 +30,7 @@ build-dockers:
         PROJECT_NAME:
           - conn-fix
           - conn-ntg
+          - conn-soup
 
 dockers-publish:
   extends: .dockers-publish-template
@@ -41,3 +42,4 @@ dockers-publish:
         PROJECT_NAME:
           - conn-fix
           - conn-ntg
+          - conn-soup

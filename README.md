@@ -25,6 +25,7 @@ You can find the description for the available service types and their configura
 ## Release notes
 + 2.4.0
   + Added conn-soup
+  + Reading dictionary from new directory (`var/th2/config/directory`)  
 + 2.3.1
     + Fix problem with parent event ID for events if an error is thrown during message sending
 + 2.3.0
