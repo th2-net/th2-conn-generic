@@ -1,4 +1,4 @@
-# Generic connects (2.3.1)
+# Generic connects (2.4.0)
 
 This project contains extensions for the base component "[Connect](https://github.com/th2-net/th2-conn)", which is responsible for
 supporting communication with the target system by using common protocols.
@@ -23,6 +23,9 @@ Each connect extension can support several service types and each one can have i
 You can find the description for the available service types and their configurable parameters within subprojects folder.
 
 ## Release notes
++ 2.4.0
+  + Added conn-soup
+  + Reading dictionary from new directory (`var/th2/config/directory`)  
 + 2.3.1
     + Fix problem with parent event ID for events if an error is thrown during message sending
 + 2.3.0
