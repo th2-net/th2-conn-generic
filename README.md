@@ -27,6 +27,7 @@ You can find the description for the available service types and their configura
 ### 3.4.0
 
 + Added conn-soup
++ Reading dictionary from new directory (`var/th2/config/directory`)
 
 ### 3.3.0
 
