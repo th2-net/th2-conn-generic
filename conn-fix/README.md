@@ -1,4 +1,4 @@
-# FIX Connect (3.1.0)
+# FIX Connect (3.4.2)
 
 This "Connect" component extension supports connections to the target system via [FIX protocol](https://www.fixtrading.org/what-is-fix/).
 
@@ -172,7 +172,7 @@ password: "password"
 # The value of the NewPassword(925) tag that is used in Logon(A) message
 newPassword: ""
 
-# If enabled the Password(554) and NewPassword(925) (if set) will value in Logon(A) message will be encrypted using RSA algorithm.
+# If enabled the Password(554) and NewPassword(925) (if set) will have the value in Logon(A) message which will be encrypted using RSA algorithm.
 # The key for encryption will be loaded from the file that is specified in the parameter encryptionKeyFilePath.
 encryptPassword: false
 
@@ -189,7 +189,7 @@ logonTimeout: 10
 # The number of seconds to wait for a logout response before disconnecting.
 logoutTimeout: 10
 
-# Inactivity service timeout (in seconds) in which the service will be shutdown automatically. If set to "0" - the service does not shutdown.
+# Inactivity service timeout (in seconds) in which the service will be shutdown automatically. If set to "0" - the service will not shutdown.
 idleTimeout: 0
 
 # Perform logon when service starts
@@ -212,7 +212,7 @@ addNextExpectedMsgSeqNum: false
 # Ignore if the tag ResetSeqNumFlag(141) is not available in the received Logon(A) message
 ignoreAbsenceOf141tag: false
 
-# If it is set to true (checked), the service does not store messages
+# If it is set to true (checked), the service will not store messages
 performanceMode: false
 
 # Create a new session after disconnecting on the server side
@@ -253,8 +253,8 @@ startTime: 00:00:00
 
 # It is a required parameter. Time of the day that this FIX session becomes deactivated.
 # The time in the format of HH:MM:SS and is represented in UTC.
-# If the session creation time is not between StartTime and EndTime the session state will be reset (incoming / outgoing sequences and message cache will be dropped).
-# The bounds move daily. That means next day after the start at 'EndTime', the bounds will be moved
+# If the session creation time is not between StartTime and EndTime, the session state will be reset (incoming / outgoing sequences and message cache will be dropped).
+# The bounds move daily. So it means that, in the next day after the start at 'EndTime', the bounds will be moved
 # Format of the value is 99:99:99
 endTime: 00:00:00
 
@@ -280,10 +280,10 @@ checkRequiredTags: true
 # It is useful to turn this off if a system uses localtime for it's timestamps instead of GMT.
 checkLatency: false
 
-# If CheckLatency is set to true (checked), this defines the number of seconds latency allowed for a message to be processed. The default is 120.
+# If CheckLatency is set to true (checked), this defines the number of seconds that latency allows for a message to be processed. The default value is set to 120.
 maxLatency: 120
 
-# If this is set to true (checked), it allow unknown fields in messages. This is intended for unknown fields with tags < 5000 (not user defined fields).
+# If this is set to true (checked), it allows unknown fields in messages. This is intended for unknown fields with tags < 5000 (not user defined fields).
 allowUnknownMsgFields: false
 
 # Determines if milliseconds should be added to timestamp fields. Only available for AML 3
@@ -298,7 +298,7 @@ receiveLimit: 0
 # The client send rejects in case the message is invalid
 rejectInvalidMessage: true          
 
-# If this is set to false (unchecked), the user defined fields will not be rejected if they are not defined in the data dictionary, or in case they are present in messages they do not belong to.
+# If this is set to false (unchecked), the user defined fields will not be rejected if they are not defined in the data dictionary, or in case they are present in messages which they do not belong to.
 validateUserDefinedFields: true
 
 # If this is set to false (unchecked), fields that are out of order (i.e. body fields in the header, or header fields in the body) will not be rejected. Useful for connecting to systems which do not properly order fields.
@@ -310,10 +310,10 @@ validateFieldsOutOfRange: true
 # If this is set to false (unchecked), fields without values (empty) will not be rejected. Useful for connecting to systems which improperly send empty tags.
 validateFieldsHaveValues: true
 
-# If this is set to true (checked), no reject sent on the incoming message with duplicate tags.
+# If this is set to true (checked), no reject is sent on the incoming message with duplicate tags.
 duplicateTagsAllowed: false
 
-# If specified, the session start and end will be converted from default zone to UTC
+# If this is specified, the session start and end time will be converted from the default zone to UTC
 useLocalTime: false
 
 # Enables SSL usage for QFJ acceptor or initiator
@@ -354,10 +354,10 @@ useDataDictionary: true
 # The class name of the FIX Server application implemented logic responsible for autonomous work.
 applicationClassName: com.exactpro.sf.services.fix.ServerApplication
 
-# It tells the application to keep messages in memory and to store them into DB or not
+# It tells the application to keep messages in memory and whether to store them into DB or not
 keepMessagesInMemory: true
 
-# if it is set to true, then the server will not wait logout message from the system and will close the session immediately after sending its own logout
+# If it is set to true, then the server will not wait a logout message from the system and will close the session immediately after sending its own logout
 forceDisconnectByDispose: false
 
 # The heartbeat interval (in seconds) that will be used, in case the tag 108 is absent in the client Logon message.
@@ -367,5 +367,8 @@ defaultHeartbeatInterval: 5
 
 ## Release notes
 
+### 3.4.2
++ Fixed the problem in which conn sends a correct user's message to the remote system but sends an incorrect copy of it to the th2 with short header instead of an enriched version
+
 ### 3.1.0
-+ Validates a message to send by the configured dictionary during decoding for the future a header update.
++ Validates a message to be sent by the configured dictionary during decoding, for future header update.
