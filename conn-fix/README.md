@@ -361,4 +361,4 @@ defaultHeartbeatInterval: 5
 ## Release notes
 
 ### 2.4.2
-+ Fixed the problem in which conn sends a correct user's message to the remote system but sends an incorrect copy of it to the th2 with a short header instead of its full version
++ Fixed the problem when the conn sends a correct user's message to the remote system but sends an incorrect copy of it to the th2 with a short header instead of its full version
