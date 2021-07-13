@@ -1,4 +1,4 @@
-# FIX Connect
+# FIX Connect (2.4.2)
 
 This "Connect" component extension supports connections to the target system via [FIX protocol](https://www.fixtrading.org/what-is-fix/).
 
@@ -357,3 +357,8 @@ forceDisconnectByDispose: false
 # If this parameter has a negative value (less than ZERO), it won't be used
 defaultHeartbeatInterval: 5
 ```
+
+## Release notes
+
+### 2.4.2
++ Fixed the problem when the conn sends a correct user's message to the remote system but sends an incorrect copy of it to the th2 with a short header instead of its full version
