@@ -134,3 +134,9 @@ networkInterface: 0.0.0.0
 # Keeps all logical message parts together. If it set to value of `true` they won't be split to different batches
 evolutionSupportEnabled: true
 ```
+
+## Release notes
+
+### 3.6.0
+
++ //TODO:
