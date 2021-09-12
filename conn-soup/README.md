@@ -1,4 +1,4 @@
-# SOUP family codecs
+# SOUP family codecs (3.6.0)
 
 ## Available service types
 
@@ -139,4 +139,5 @@ evolutionSupportEnabled: true
 
 ### 3.6.0
 
-+ //TODO:
++ Embedded service based on MINA decodes message as sender during send.
+  This approach is important for cases where pair of messages have the same protocol message type and different structures depending on direction.
