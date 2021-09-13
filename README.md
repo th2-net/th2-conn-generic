@@ -1,4 +1,4 @@
-# Generic connects (3.5.0)
+# Generic connects (3.6.0)
 
 This project contains extensions for the base component "[Connect](https://github.com/th2-net/th2-conn)", which is responsible for
 supporting communication with the target system by using common protocols.
@@ -23,6 +23,11 @@ Each connect can support several service types and each one can have its own par
 You can find the description for the available service types and their configurable parameters within subprojects folder.
 
 ## Release notes
+
+### 3.6.0
+
++ Updated base image to th2-conn:3.9.0, it includes sailfish service based on MINA decodes the message as sender during sending.
+  This approach is important for protocols in which a pair of messages have the same protocol message type and different structures depending on the direction.
 
 ### 3.5.0
 
