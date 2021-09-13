@@ -131,7 +131,7 @@ port: 1234
 # The interface can be specified either by name or by interface's IP address.
 networkInterface: 0.0.0.0
 
-# Keeps all logical message parts together. If it set to value of `true` they won't be split to different batches
+# Maintains all the logical message parts together. If it is set to `true`, they won't be split into different batches
 evolutionSupportEnabled: true
 ```
 
@@ -139,5 +139,5 @@ evolutionSupportEnabled: true
 
 ### 3.6.0
 
-+ Embedded service based on MINA decodes message as sender during send.
-  This approach is important for cases where pair of messages have the same protocol message type and different structures depending on direction.
++ Embedded service based on MINA decodes the message as sender during sending.
+  This approach is important for cases in which a pair of messages have the same protocol message type and different structures depending on the direction.
