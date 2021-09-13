@@ -1,4 +1,4 @@
-# Generic connects (3.5.0)
+# Generic connects (3.6.0)
 
 This project contains extensions for the base component "[Connect](https://github.com/th2-net/th2-conn)", which is responsible for
 supporting communication with the target system by using common protocols.
@@ -24,6 +24,11 @@ You can find the description for the available service types and their configura
 
 ## Release notes
 
+### 3.6.0
+
++ Updated base image to th2-conn:3.9.0, it includes sailfish service based on MINA decodes the message as sender during sending.
+  This approach is important for protocols in which a pair of messages have the same protocol message type and different structures depending on the direction.
+
 ### 3.5.0
 
 + Disable waiting for connection recovery when closing the `SubscribeMonitor`
@@ -31,7 +36,7 @@ You can find the description for the available service types and their configura
 ### 3.4.1
 
 + Update Sailfish version to 3.2.1603
-+ FIX connect rejects messages if user tries to send them before the logon is complete (fixes issue with corrupting sender sequence number)
++ FIX connect rejects messages if the user tries to send them before the logon is completed (fixes issue with corrupting sender sequence number)
 
 ### 3.4.0
 
@@ -44,7 +49,7 @@ You can find the description for the available service types and their configura
 + Added enableMessageSendingEvent option to manage the event emitted related to sent messages
 + Produce th2_conn_incoming_msg_quantity / th2_conn_outgoing_msg_quantity metrics
 + Use release version for sailfish-core
-+ Alert if got ErrorMessage when sending raw message
++ An alert is sent if it gets an ErrorMessage when sending raw message
 + Copies message properties from the th2 proto Message to Sailfish IMessage when converting
 + Resets embedded log4j configuration before configuring from a file
 

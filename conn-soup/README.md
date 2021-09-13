@@ -1,4 +1,4 @@
-# SOUP family codecs
+# SOUP family codecs (3.6.0)
 
 ## Available service types
 
@@ -43,22 +43,22 @@ compressionUsed: false
 # If delimiter is different an error will be reported.
 compressedChunkDelimeter: 57005
 
-# Indicate whether the "connect" should automatically reconnect if connection was closed by the opposite side.
+# Indicate whether the "connect" should automatically reconnect if the connection was closed by the opposite side.
 reconnecting: true
 
-# Timeout in milliseconds before reconnecting if connection was closed by the opposite side.
+# Timeout in milliseconds before reconnecting if the connection was closed by the opposite side.
 reconnectingTimeout: 5000
 
-# The required parameter for reconnection logic. If it set to value of `false` the reconnection won't perform
+# The required parameter for reconnection logic. If it is set to `false` the reconnection won't be performed
 disposeWhenSessionClosed: true
 
-# Enables the feature to send heartbeat automatically. You can specify a time interval in 'heartbeatTimeout' option.
+# It enables the feature to send heartbeat automatically. You can specify a time interval in 'heartbeatTimeout' option.
 sendHeartBeats: true
 
-# Sends Heartbeat every specified seconds (if no other messages are sent during that time). This feature may be enabled by 'sendHeartBeats' option
+# It sends Heartbeat with the interval in seconds that is specified in this field (if no other messages are sent during that time). This feature may be enabled by setting 'sendHeartBeats' option to `true`
 heartbeatTimeout: 5
 
-# Keeps all logical message parts together. If it set to value of `true` they won't be split to different batches
+# Maintains all the logical message parts together. If it is set to `true` they won't be split into different batches
 evolutionSupportEnabled: true
 ```
 
@@ -97,19 +97,19 @@ compressedChunkDelimeter: 57005
 # Indicate whether the "connect" should automatically reconnect if connection was closed by the opposite side.
 reconnecting: true
 
-# Timeout in milliseconds before reconnecting if connection was closed by the opposite side.
+# Timeout in milliseconds before reconnecting if the connection was closed by the opposite side.
 reconnectingTimeout: 5000
 
-# The required parameter for reconnection logic. If it set to value of `false` the reconnection won't perform
+# The required parameter for reconnection logic. If it is set to `false` the reconnection won't be performed
 disposeWhenSessionClosed: true
 
-# Enables the feature to send heartbeat automatically. You can specify a time interval in 'heartbeatTimeout' option.
+# It enables the feature to send heartbeat automatically. You can specify a time interval in 'heartbeatTimeout' option.
 sendHeartBeats: true
 
-# Sends Heartbeat every specified seconds (if no other messages are sent during that time). This feature may be enabled by 'sendHeartBeats' option
+# It sends Heartbeat with the interval in seconds that is specified in this field (if no other messages are sent during that time). This feature may be enabled by setting 'sendHeartBeats' option to `true`
 heartbeatTimeout: 5
 
-# Keeps all logical message parts together. If it set to value of `true` they won't be split to different batches
+# Maintains all the logical message parts together. If it is set to `true` they won't be split into different batches
 evolutionSupportEnabled: true
 ```
 
@@ -127,10 +127,17 @@ address: 127.0.0.1
 port: 1234
 
 # The network interface to listen to UDP traffic.
-# If it is not set the first found interface will be used.
+# If it is not set the first interface that is found will be used.
 # The interface can be specified either by name or by interface's IP address.
 networkInterface: 0.0.0.0
 
-# Keeps all logical message parts together. If it set to value of `true` they won't be split to different batches
+# Maintains all the logical message parts together. If it is set to `true`, they won't be split into different batches
 evolutionSupportEnabled: true
 ```
+
+## Release notes
+
+### 3.6.0
+
++ Embedded service based on MINA decodes the message as sender during sending.
+  This approach is important for cases in which a pair of messages have the same protocol message type and different structures depending on the direction.
