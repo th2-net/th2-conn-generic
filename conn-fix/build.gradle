@@ -1,1 +1,0 @@
-configurations.service.exclude group: 'berkeleydb', module: 'je'
