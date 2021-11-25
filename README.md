@@ -27,7 +27,8 @@ You can find the description for the available service types and their configura
 ### 3.7.0
 
 + Update sailfish version to 3.2.1748
-  + fix problem with dropping metadata in FIX conn when sending 
+  + fix problem with dropping metadata in FIX conn when sending
+  + add more information into error message when the incorrect CheckSum format was received for sending by FIX client
   + fix decoding of EndOfSession messages in SOUP conn
 
 ### 3.6.1
