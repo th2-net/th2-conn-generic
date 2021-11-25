@@ -28,7 +28,7 @@ You can find the description for the available service types and their configura
 
 + Update sailfish version to 3.2.1748
   + fix problem with dropping metadata in FIX conn when sending 
-  + fix decoding of EndOfSession message
+  + fix decoding of EndOfSession messages in SOUP conn
 
 ### 3.6.1
 
