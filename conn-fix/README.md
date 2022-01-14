@@ -220,6 +220,9 @@ autorelogin: true
 
 # If it is specified , then we will check for OrigSendingTime in resend request
 requiresOrigSendingTime: true
+
+# Responds to the Resend Request message by Heartbeat messages instead of messages from session storage if this option is true. The default value is false.
+fakeResendRequest: false
 ```
 
 ### FIX Server
