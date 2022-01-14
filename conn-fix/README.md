@@ -220,6 +220,9 @@ autorelogin: true
 
 # If it is specified , then we will check for OrigSendingTime in resend request
 requiresOrigSendingTime: true
+
+# Response To Resend Request By Heartbeats
+fakeResendRequest: true
 ```
 
 ### FIX Server
