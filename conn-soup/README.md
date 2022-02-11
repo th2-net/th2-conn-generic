@@ -137,6 +137,9 @@ evolutionSupportEnabled: true
 
 ## Release notes
 
+### 3.7.0
++ Fixed decoding of EndOfSession messages
+
 ### 3.6.0
 
 + Embedded service based on MINA decodes the message as sender during sending.

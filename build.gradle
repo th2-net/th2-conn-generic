@@ -9,7 +9,7 @@ subprojects {
     ext {
         sharedDir                     = file("${project.rootDir}/shared")
         baseSailfishVersion           = '3.2'
-        sailfishVersion               = "${baseSailfishVersion}.1684"
+        sailfishVersion               = "${baseSailfishVersion}.1748"
 
         pluginMainDir                 = file('src/main/plugin')
         pluginGenDir                  = file('src/gen/plugin')
@@ -32,6 +32,7 @@ subprojects {
             name 'Sonatype_releases'
             url 'https://s01.oss.sonatype.org/content/repositories/releases/'
         }
+        mavenLocal()
 
         configurations.all {
             resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
