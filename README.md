@@ -30,6 +30,7 @@ You can find the description for the available service types and their configura
   + fix problem with dropping metadata in FIX conn when sending
   + add more information into error message when the incorrect CheckSum format was received for sending by FIX client
   + fix decoding of EndOfSession messages in SOUP conn
++ Updated base image to th2-conn:3.10.0, it includes fix for missed sequences
 
 ### 3.6.1
 
