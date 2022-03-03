@@ -61,7 +61,7 @@ resetOnLogout: false
 # Determines if the sequence numbers should be reset to 1, after an abnormal termination
 resetOnDisconnect: false
 
-# If this parameter is set to true, it will save Heartbeats to logs.
+# Save Heartbeats to QFJ logs file or not. Does not affect appearance of the HB messages in the console log
 logHeartbeats: false
 
 # If it is set to true, it will check required tags.
@@ -189,12 +189,6 @@ logonTimeout: 10
 # The number of seconds to wait for a logout response before disconnecting.
 logoutTimeout: 10
 
-# Inactivity service timeout (in seconds) in which the service will be shutdown automatically. If set to "0" - the service will not shutdown.
-idleTimeout: 0
-
-# Perform logon when service starts
-doLogonOnStart: true
-
 # The value of the tag DefaultCstmApplVerID(1408) that is used in Logon(A) message
 defaultCstmApplVerID: ""
 
@@ -270,7 +264,7 @@ resetOnLogout: false
 # Determines if the sequence numbers should be reset to 1, after an abnormal termination
 resetOnDisconnect: false
 
-# Save Heartbeats to logs or not.
+# Save Heartbeats to QFJ logs file or not. Does not affect appearance of the HB messages in the console log
 logHeartbeats: false
 
 # Check required tags or not.
@@ -330,9 +324,6 @@ sslEnabledProtocols: ""
 
 # It controls which particular SSL cipher suites are enabled for secure connection
 sslCipherSuites: ""
-
-# It enables fields ordering in raw message by dictionary
-orderingFields: false
 
 # Checks the next expected target SeqNum against the received SeqNum. Checked by default.
 # If a mismatch is detected, the following logic is applied:
