@@ -1,4 +1,4 @@
-# Generic connects (3.7.0)
+# Generic connects (3.7.1)
 
 This project contains extensions for the base component "[Connect](https://github.com/th2-net/th2-conn)", which is responsible for
 supporting communication with the target system by using common protocols.
@@ -23,6 +23,14 @@ Each connect can support several service types and each one can have its own par
 You can find the description for the available service types and their configurable parameters within subprojects folder.
 
 ## Release notes
+
+### 3.7.1
+
++ Update sailfish version to 3.2.1748
+  + fix problem with dropping metadata in FIX conn when sending
+  + add more information into error message when the incorrect CheckSum format was received for sending by FIX client
+  + fix decoding of EndOfSession messages in SOUP conn
++ Updated base image to th2-conn:3.10.1, it includes fix for missed sequences
 
 ### 3.7.0
 
