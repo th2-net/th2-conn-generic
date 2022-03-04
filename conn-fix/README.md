@@ -122,9 +122,6 @@ sslEnabledProtocols: ""
 # It controls which particular SSL cipher suites are enabled for secure connection
 sslCipherSuites: ""
 
-# It enables fields ordering in raw message by dictionary
-orderingFields: false
-
 # Checks the next expected target SeqNum against the received SeqNum. Checked by default.
 # If a mismatch is detected, the following logic is applied:
 # * if lower than expected SeqNum , logout
