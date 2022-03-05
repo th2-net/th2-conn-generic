@@ -1,4 +1,4 @@
-FROM gradle:6.6-jdk11 AS build
+FROM gradle:7.4.0-jdk11 AS build
 COPY ./ .
 RUN gradle --no-daemon clean dockerPrepare
 
