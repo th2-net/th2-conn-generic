@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <!--
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  ~ Copyright 2020-2020 Exactpro (Exactpro Systems Limited)
+  ~ Copyright 2020-2021 Exactpro (Exactpro Systems Limited)
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -19,12 +19,12 @@
 <Services>
   <Service name="FIX_Client">
     <className>com.exactpro.sf.services.fix.FIXClient</className>
-    <settingsClassName>com.exactpro.sf.services.fix.FIXClientSettings</settingsClassName>
+    <settingsClassName>com.exactpro.sf.services.fix.EvolutionFIXClientSettings</settingsClassName>
     <dictionaryValidatorFactoryName>com.exactpro.sf.configuration.dictionary.FullFIXDictionaryValidatorFactory</dictionaryValidatorFactoryName>
   </Service>
   <Service name="FIX_Server">
     <className>com.exactpro.sf.services.fix.FIXServer</className>
-    <settingsClassName>com.exactpro.sf.services.fix.FIXServerSettings</settingsClassName>
+    <settingsClassName>com.exactpro.sf.services.fix.EvolutionFIXServerSettings</settingsClassName>
     <dictionaryValidatorFactoryName>com.exactpro.sf.configuration.dictionary.FullFIXDictionaryValidatorFactory</dictionaryValidatorFactoryName>
   </Service>
 </Services>
