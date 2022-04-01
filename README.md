@@ -24,6 +24,11 @@ You can find the description for the available service types and their configura
 
 ## Release notes
 
+### 3.7.2
+
++ Update Sailfish version to 3.2.1811
+    + fix problem with decoding mold-udp messages with declared message length
+
 ### 3.7.1
 
 + Update sailfish version to 3.2.1748
