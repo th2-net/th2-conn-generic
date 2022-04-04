@@ -27,7 +27,10 @@ You can find the description for the available service types and their configura
 ### 3.7.2
 
 + Update Sailfish version to 3.2.1811
-    + fix problem with decoding mold-udp messages with declared message length
+    + fix problem with decoding mold-udp messages with declared message length.
+    Now the mold-udp codec inside the conn-soup can respect the information about the message's length before
+    each message in the payload and read only necessary bytes from buffer, otherwise the system receive
+    the rejected message with `reject reason`.
 
 ### 3.7.1
 
