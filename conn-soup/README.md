@@ -1,4 +1,4 @@
-# SOUP family codecs (3.7.1)
+# SOUP family codecs (3.7.2)
 
 ## Available service types
 
@@ -137,7 +137,7 @@ evolutionSupportEnabled: true
 
 ## Release notes
 
-### 3.7.1
+### 3.7.2
 
 + Update sailfish version to 3.2.1860
   + Add declared message length check

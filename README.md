@@ -28,7 +28,7 @@ You can find the description for the available service types and their configura
 
 + Update sailfish version to 3.2.1860
   + Various fixes for specific conn types
-  + Added tags for dictionary converter
+  + Added messages names for dictionary converter
 
 ### 3.7.1
 
