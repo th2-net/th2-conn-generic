@@ -27,12 +27,8 @@ You can find the description for the available service types and their configura
 ### 3.7.2
 
 + Update sailfish version to 3.2.1860
-  + Add declared message length check for mold-udp protocol
-  + Add validation of incoming messages at the qfj level
-  + Fix double/float decoding for ntg codec 
-  + Migrate to multi codec instead of multiply CumulativeProtocolDecoder
-  + Buffer size check before decoding
-  + Correct methods calls in server application
+  + Various fixes for specific conn types
+  + Added tags for dictionary converter
 
 ### 3.7.1
 

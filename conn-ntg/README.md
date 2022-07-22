@@ -57,3 +57,6 @@ doLoginOnStart: true
 # If the value is set to 0 (ZERO) , the service won't reconnect. In order for the reconnect task to work, the following settings must be enabled: Do Login On Start, Autosend Heartbeat.
 reconnectTimeout: 5000
 ```
++ Update
+  + Add check scale for float and double types 
+  + Fix double/float decoding for ntg codec 
