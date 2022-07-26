@@ -2,7 +2,7 @@ FROM gradle:6.6-jdk11 AS build
 COPY ./ .
 RUN gradle --no-daemon clean dockerPrepare
 
-FROM ghcr.io/th2-net/th2-conn:4.0.0-th2-2150-books-pages-2630141716
+FROM ghcr.io/th2-net/th2-conn:4.0.0-th2-3987-dictionaries-custom-config-2739370889
 ARG project_name
 WORKDIR /home
 COPY --from=build /home/gradle/${project_name}/build/docker .
