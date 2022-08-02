@@ -1,4 +1,4 @@
-# Generic connects (3.7.1)
+# Generic connects (3.7.2)
 
 This project contains extensions for the base component "[Connect](https://github.com/th2-net/th2-conn)", which is responsible for
 supporting communication with the target system by using common protocols.
@@ -23,6 +23,11 @@ Each connect can support several service types and each one can have its own par
 You can find the description for the available service types and their configurable parameters within subprojects folder.
 
 ## Release notes
+
+### 3.7.2
+
++ Update sailfish version to 3.2.1860
+  + Various fixes for specific conn types
 
 ### 3.7.1
 

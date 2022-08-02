@@ -1,4 +1,4 @@
-# FIX Connect (3.4.2)
+# FIX Connect (3.7.2)
 
 This "Connect" component extension supports connections to the target system via [FIX protocol](https://www.fixtrading.org/what-is-fix/).
 
@@ -354,6 +354,10 @@ defaultHeartbeatInterval: 5
 ```
 
 ## Release notes
+
+### 3.7.2
++ Update sailfish version to 3.2.1860 
+  + Detection of errors in FIXSession and FIXCodec during parsing qfj messages
 
 ### 3.4.2
 + Fixed the problem in which conn sends a correct user's message to the remote system but sends an incorrect copy of it to the th2 with short header instead of an enriched version
