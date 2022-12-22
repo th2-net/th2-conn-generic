@@ -27,6 +27,7 @@ You can find the description for the available service types and their configura
 ### 4.0.0
 
 + `th2-conn` version with books/pages
++ Update Sailfish version to 3.3.26
 
 ### 3.6.1
 
