@@ -20,6 +20,7 @@ jobs:
     uses: th2-net/.github/.github/workflows/matrix-java-docker.yml@th2-4135-matrix-workflow
     with:
       runsOn: ubuntu-20.04
+      projectName: ${{ matrix.proto }}
       build-target: 'Docker'
       docker-username: ${{ github.actor }}
     secrets:
