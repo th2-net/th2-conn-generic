@@ -11,7 +11,6 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
     strategy:
       matrix:
         proto:
@@ -20,6 +19,7 @@ jobs:
           - conn-soup
     uses: th2-net/.github/.github/workflows/matrix-java-docker-dev.yml@th2-4135-matrix-workflow
     with:
+      runsOn: ubuntu-20.04
       build-target: 'Docker'
       docker-username: ${{ github.actor }}
     secrets:
