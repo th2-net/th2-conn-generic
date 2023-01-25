@@ -1,9 +1,11 @@
 plugins {
     id 'com.palantir.docker' version '0.25.0' apply false
+    id 'java'
 }
 
 subprojects {
     apply plugin: 'base'
+    apply plugin: 'java'
     apply plugin: 'com.palantir.docker'
 
     ext {
@@ -18,20 +20,57 @@ subprojects {
         dockerSailfishWorkspaceLibDir = "${dockerSailfishWorkspaceDir}/libs"
     }
 
+    ext.excludeSailfish = { rcd ->
+        rcd.excludeModule("com.exactpro.sf", "sailfish-core")
+        rcd.excludeModule("com.exactpro.sf", "sailfish-common")
+        rcd.excludeModule("com.exactpro.sf", "sailfish-rest-api-client")
+        rcd.excludeModule("com.exactpro.sf", "service-http")
+    }
+
+
     repositories {
         maven {
             name 'MavenLocal'
             url sharedDir
         }
-        mavenCentral()
+
         maven {
             name 'Sonatype_snapshots'
             url 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
+            content {
+                excludeSailfish(it)
+            }
+        }
+        // ignoreGradleMetadataRedirection is used for sonatype because
+        // Sailfish dependencies have constrains that interfere with our BOM
+        // so we exclude Gradle metadata for this repositories.
+        // We've checked these versions - they are compatible and safe to use
+        maven {
+            name 'Sonatype_snapshots'
+            url 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
+            metadataSources {
+                mavenPom()
+                artifact()
+                ignoreGradleMetadataRedirection()
+            }
         }
         maven {
             name 'Sonatype_releases'
             url 'https://s01.oss.sonatype.org/content/repositories/releases/'
+            content {
+                excludeSailfish(it)
+            }
         }
+        maven {
+            name 'Sonatype_releases'
+            url 'https://s01.oss.sonatype.org/content/repositories/releases/'
+            metadataSources {
+                mavenPom()
+                artifact()
+                ignoreGradleMetadataRedirection()
+            }
+        }
+        mavenCentral()
         mavenLocal()
 
         configurations.all {
@@ -49,6 +88,7 @@ subprojects {
             exclude module: 'sailfish-core'
             exclude module: 'sailfish-common'
         }
+        implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.0'
     }
 
     task pluginWriteVersion {
