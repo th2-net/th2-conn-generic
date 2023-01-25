@@ -27,6 +27,9 @@ subprojects {
         rcd.excludeModule("com.exactpro.sf", "service-http")
         rcd.excludeModule("com.exactpro.sf", "service-tcpip")
         rcd.excludeModule("com.exactpro.sf", "service-fix")
+        rcd.excludeModule("com.exactpro.sf", "service-ntg")
+        rcd.excludeModule("com.exactpro.sf", "service-itch")
+        rcd.excludeModule("com.exactpro.sf", "service-soup")
     }
 
 
