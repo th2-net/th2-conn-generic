@@ -25,6 +25,8 @@ subprojects {
         rcd.excludeModule("com.exactpro.sf", "sailfish-common")
         rcd.excludeModule("com.exactpro.sf", "sailfish-rest-api-client")
         rcd.excludeModule("com.exactpro.sf", "service-http")
+        rcd.excludeModule("com.exactpro.sf", "service-tcpip")
+        rcd.excludeModule("com.exactpro.sf", "service-fix")
     }
 
 
@@ -88,7 +90,8 @@ subprojects {
             exclude module: 'sailfish-core'
             exclude module: 'sailfish-common'
         }
-        implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.0'
+        service ('com.fasterxml.jackson.core:jackson-databind:2.14.1')
+
     }
 
     task pluginWriteVersion {
