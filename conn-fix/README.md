@@ -1,4 +1,4 @@
-# FIX Connect (3.7.2)
+# FIX Connect (3.8.0)
 
 This "Connect" component extension supports connections to the target system via [FIX protocol](https://www.fixtrading.org/what-is-fix/).
 
@@ -354,6 +354,11 @@ defaultHeartbeatInterval: 5
 ```
 
 ## Release notes
+
+### 3.8.0
+
++ Updated `sailfish-core` version from `3.2.1741` to `3.3.54`
++ Updated `common` from `3.33.0` to `3.44.0`
 
 ### 3.7.2
 + Update sailfish version to 3.2.1860 

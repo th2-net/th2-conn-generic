@@ -1,4 +1,4 @@
-# Connect Native Trading Gateway (NTG) (3.7.2)
+# Connect Native Trading Gateway (NTG) (3.8.0)
 
 ## Available service types
 
@@ -59,6 +59,11 @@ reconnectTimeout: 5000
 ```
 
 ## Release notes
+
+### 3.8.0
+
++ Updated `sailfish-core` version from `3.2.1741` to `3.3.54`
++ Updated `common` from `3.33.0` to `3.44.0`
 
 ### 3.7.2
 + Update
