@@ -1,15 +1,17 @@
 plugins {
     id 'com.palantir.docker' version '0.25.0' apply false
+    id 'java'
 }
 
 subprojects {
     apply plugin: 'base'
+    apply plugin: 'java'
     apply plugin: 'com.palantir.docker'
 
     ext {
         sharedDir                     = file("${project.rootDir}/shared")
-        baseSailfishVersion           = '3.2'
-        sailfishVersion               = "${baseSailfishVersion}.1860"
+        baseSailfishVersion           = '3.3'
+        sailfishVersion               = "${baseSailfishVersion}.54"
 
         pluginMainDir                 = file('src/main/plugin')
         pluginGenDir                  = file('src/gen/plugin')
@@ -49,6 +51,7 @@ subprojects {
             exclude module: 'sailfish-core'
             exclude module: 'sailfish-common'
         }
+
     }
 
     task pluginWriteVersion {
