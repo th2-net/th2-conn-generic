@@ -28,6 +28,28 @@ You can find the description for the available service types and their configura
 
 + `th2-conn` version with books/pages
 
+### 3.8.0
+
++ Updated `sailfish-core` version from `3.2.1741` to `3.3.54`
++ Updated `common` from `3.33.0` to `3.44.0`
+
+### 3.7.2
+
++ Update sailfish version to 3.2.1860
+  + Various fixes for specific conn types
+
+### 3.7.1
+
++ Update sailfish version to 3.2.1748
+  + fix problem with dropping metadata in FIX conn when sending
+  + add more information into error message when the incorrect CheckSum format was received for sending by FIX client
+  + fix decoding of EndOfSession messages in SOUP conn
++ Updated base image to th2-conn:3.10.1, it includes fix for missed sequences
+
+### 3.7.0
+
++ Update base image th2-conn version from `3.9.0` to `3.10.0`
+
 ### 3.6.1
 
 + Update Sailfish version to 3.2.1684

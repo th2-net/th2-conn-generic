@@ -1,4 +1,4 @@
-# FIX Connect (3.4.2)
+# FIX Connect (3.8.0)
 
 This "Connect" component extension supports connections to the target system via [FIX protocol](https://www.fixtrading.org/what-is-fix/).
 
@@ -61,7 +61,7 @@ resetOnLogout: false
 # Determines if the sequence numbers should be reset to 1, after an abnormal termination
 resetOnDisconnect: false
 
-# If this parameter is set to true, it will save Heartbeats to logs.
+# Save Heartbeats to QFJ logs file or not. Does not affect appearance of the HB messages in the console log
 logHeartbeats: false
 
 # If it is set to true, it will check required tags.
@@ -121,9 +121,6 @@ sslEnabledProtocols: ""
 
 # It controls which particular SSL cipher suites are enabled for secure connection
 sslCipherSuites: ""
-
-# It enables fields ordering in raw message by dictionary
-orderingFields: false
 
 # Checks the next expected target SeqNum against the received SeqNum. Checked by default.
 # If a mismatch is detected, the following logic is applied:
@@ -188,12 +185,6 @@ logonTimeout: 10
 
 # The number of seconds to wait for a logout response before disconnecting.
 logoutTimeout: 10
-
-# Inactivity service timeout (in seconds) in which the service will be shutdown automatically. If set to "0" - the service will not shutdown.
-idleTimeout: 0
-
-# Perform logon when service starts
-doLogonOnStart: true
 
 # The value of the tag DefaultCstmApplVerID(1408) that is used in Logon(A) message
 defaultCstmApplVerID: ""
@@ -270,7 +261,7 @@ resetOnLogout: false
 # Determines if the sequence numbers should be reset to 1, after an abnormal termination
 resetOnDisconnect: false
 
-# Save Heartbeats to logs or not.
+# Save Heartbeats to QFJ logs file or not. Does not affect appearance of the HB messages in the console log
 logHeartbeats: false
 
 # Check required tags or not.
@@ -331,9 +322,6 @@ sslEnabledProtocols: ""
 # It controls which particular SSL cipher suites are enabled for secure connection
 sslCipherSuites: ""
 
-# It enables fields ordering in raw message by dictionary
-orderingFields: false
-
 # Checks the next expected target SeqNum against the received SeqNum. Checked by default.
 # If a mismatch is detected, the following logic is applied:
 # * if lower than expected SeqNum , logout
@@ -366,6 +354,15 @@ defaultHeartbeatInterval: 5
 ```
 
 ## Release notes
+
+### 3.8.0
+
++ Updated `sailfish-core` version from `3.2.1741` to `3.3.54`
++ Updated `common` from `3.33.0` to `3.44.0`
+
+### 3.7.2
++ Update sailfish version to 3.2.1860 
+  + Detection of errors in FIXSession and FIXCodec during parsing qfj messages
 
 ### 3.4.2
 + Fixed the problem in which conn sends a correct user's message to the remote system but sends an incorrect copy of it to the th2 with short header instead of an enriched version
