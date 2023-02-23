@@ -97,3 +97,4 @@ You can find the description for the available service types and their configura
 + Joins all related `IMessage`s to a single raw message;
 + Messages that were sent using this connectivity but did not have any parent event ID
   are attached to the dedicated event for this connectivity.
+  
