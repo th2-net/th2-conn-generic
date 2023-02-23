@@ -3,6 +3,7 @@
 name: Build and publish Docker distributions to Github Container Registry ghcr.io
 
 on:
+  workflow_dispatch:
   push:
     branches:
     - master
