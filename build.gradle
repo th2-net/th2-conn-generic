@@ -11,7 +11,7 @@ subprojects {
     ext {
         sharedDir                     = file("${project.rootDir}/shared")
         baseSailfishVersion           = '3.3'
-        sailfishVersion               = "${baseSailfishVersion}.54"
+        sailfishVersion               = "${baseSailfishVersion}.93"
 
         pluginMainDir                 = file('src/main/plugin')
         pluginGenDir                  = file('src/gen/plugin')

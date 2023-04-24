@@ -1,4 +1,4 @@
-# FIX Connect (3.8.0)
+# FIX Connect (3.8.1)
 
 This "Connect" component extension supports connections to the target system via [FIX protocol](https://www.fixtrading.org/what-is-fix/).
 
@@ -211,6 +211,9 @@ autorelogin: true
 
 # If it is specified , then we will check for OrigSendingTime in resend request
 requiresOrigSendingTime: true
+
+# Value for encryptMethod(98) field. Value is taken from dictionary by alias specified in this setting.
+encryptMethod: PKCS
 ```
 
 ### FIX Server
@@ -354,6 +357,9 @@ defaultHeartbeatInterval: 5
 ```
 
 ## Release notes
+
+### 3.8.1
++ Updated `saifish-core` version from `3.3.54` to `3.3.93`
 
 ### 3.8.0
 
