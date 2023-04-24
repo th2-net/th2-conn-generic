@@ -1,4 +1,4 @@
-# SOUP family codecs (3.8.0)
+# SOUP family codecs (4.0.1)
 
 ## Available service types
 
@@ -136,6 +136,14 @@ evolutionSupportEnabled: true
 ```
 
 ## Release notes
+
+### 4.0.1
+
++ Updated `sailfish-core` version from `3.3.54` to `3.3.93`
+
+### 4.0.0
+
++ `th2-conn` version with books/pages
 
 ### 3.8.0
 
