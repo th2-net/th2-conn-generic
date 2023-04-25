@@ -361,7 +361,7 @@ defaultHeartbeatInterval: 5
 ### 4.0.1
 
 + Updated `sailfish-core` version from `3.3.54` to `3.3.93`
-+ Password encryption support
++ New `fix` client property `encryptMethod`: password encryption support
 
 ### 4.0.0
 

@@ -27,6 +27,7 @@ You can find the description for the available service types and their configura
 ### 4.0.1
 
 + Updated `sailfish-core` version from `3.3.54` to `3.3.93`
++ New `fix` client property `encryptMethod`: password encryption support
 
 ### 4.0.0
 
