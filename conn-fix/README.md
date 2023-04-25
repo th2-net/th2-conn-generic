@@ -360,6 +360,7 @@ defaultHeartbeatInterval: 5
 
 ### 3.8.1
 + Updated `saifish-core` version from `3.3.54` to `3.3.93`
++ New client property `encryptMethod`: password encryption support
 
 ### 3.8.0
 
