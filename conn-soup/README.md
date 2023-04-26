@@ -1,4 +1,4 @@
-# SOUP family codecs (3.8.0)
+# SOUP family codecs (3.8.1)
 
 ## Available service types
 
@@ -136,6 +136,9 @@ evolutionSupportEnabled: true
 ```
 
 ## Release notes
+
+### 3.8.1
++ Updated `saifish-core` version from `3.3.54` to `3.3.93`
 
 ### 3.8.0
 
