@@ -1,6 +1,7 @@
 plugins {
     id 'com.palantir.docker' version '0.25.0' apply false
     id 'java'
+    id "org.owasp.dependencycheck" version "8.1.2"
 }
 
 subprojects {
@@ -11,7 +12,7 @@ subprojects {
     ext {
         sharedDir                     = file("${project.rootDir}/shared")
         baseSailfishVersion           = '3.3'
-        sailfishVersion               = "${baseSailfishVersion}.54"
+        sailfishVersion               = "${baseSailfishVersion}.93"
 
         pluginMainDir                 = file('src/main/plugin')
         pluginGenDir                  = file('src/gen/plugin')
@@ -89,5 +90,16 @@ subprojects {
 
     clean {
         delete(pluginGenDir)
+    }
+}
+
+dependencyCheck {
+    formats=['SARIF', 'JSON', 'HTML']
+    failBuildOnCVSS=5
+
+    analyzers {
+        assemblyEnabled = false
+        nugetconfEnabled = false
+        nodeEnabled = false
     }
 }
