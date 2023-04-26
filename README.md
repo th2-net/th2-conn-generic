@@ -26,7 +26,6 @@ You can find the description for the available service types and their configura
 
 ### 3.8.1
 + Updated `saifish-core` version from `3.3.54` to `3.3.93`
-+ New `fix` client property `encryptMethod`: password encryption support
 
 ### 3.8.0
 
