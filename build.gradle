@@ -51,8 +51,8 @@ subprojects {
         service ("com.exactpro.sf:${sf_service_name}:${sailfishVersion}") {
             exclude module: 'sailfish-core'
             exclude module: 'sailfish-common'
+            exclude module: 'quickfixj-core'
         }
-
     }
 
     task pluginWriteVersion {
@@ -74,8 +74,16 @@ subprojects {
         dependsOn pluginWriteVersion
     }
 
+    task copyDocs(type: Copy) {
+        from 'libs'
+        into dockerSailfishWorkspaceLibDir
+    }
+
     docker {
         copySpec.with {
+            from("libs") {
+                into dockerSailfishWorkspaceLibDir
+            }
             from(configurations.service) {
                 into dockerSailfishWorkspaceLibDir
             }
