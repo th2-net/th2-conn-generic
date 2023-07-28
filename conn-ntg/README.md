@@ -1,4 +1,4 @@
-# Connect Native Trading Gateway (NTG)
+# Connect Native Trading Gateway (NTG) (3.8.1)
 
 ## Available service types
 
@@ -57,3 +57,18 @@ doLoginOnStart: true
 # If the value is set to 0 (ZERO) , the service won't reconnect. In order for the reconnect task to work, the following settings must be enabled: Do Login On Start, Autosend Heartbeat.
 reconnectTimeout: 5000
 ```
+
+## Release notes
+
+### 3.8.1
++ Updated `saifish-core` version from `3.3.54` to `3.3.93`
+
+### 3.8.0
+
++ Updated `sailfish-core` version from `3.2.1741` to `3.3.54`
++ Updated `common` from `3.33.0` to `3.44.0`
+
+### 3.7.2
++ Update
+  + Add check scale for float and double types during encode
+  + Increased accuracy of division double/float during decoding in ntg codec

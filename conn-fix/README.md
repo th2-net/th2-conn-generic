@@ -1,4 +1,4 @@
-# FIX Connect (3.4.2)
+# FIX Connect (3.8.1)
 
 This "Connect" component extension supports connections to the target system via [FIX protocol](https://www.fixtrading.org/what-is-fix/).
 
@@ -211,6 +211,9 @@ autorelogin: true
 
 # If it is specified , then we will check for OrigSendingTime in resend request
 requiresOrigSendingTime: true
+
+# Value for encryptMethod(98) field. Value is taken from dictionary by alias specified in this setting.
+encryptMethod: PKCS
 ```
 
 ### FIX Server
@@ -354,6 +357,19 @@ defaultHeartbeatInterval: 5
 ```
 
 ## Release notes
+
+### 3.8.1
++ Updated `saifish-core` version from `3.3.54` to `3.3.93`
++ New client property `encryptMethod`: password encryption support
+
+### 3.8.0
+
++ Updated `sailfish-core` version from `3.2.1741` to `3.3.54`
++ Updated `common` from `3.33.0` to `3.44.0`
+
+### 3.7.2
++ Update sailfish version to 3.2.1860 
+  + Detection of errors in FIXSession and FIXCodec during parsing qfj messages
 
 ### 3.4.2
 + Fixed the problem in which conn sends a correct user's message to the remote system but sends an incorrect copy of it to the th2 with short header instead of an enriched version

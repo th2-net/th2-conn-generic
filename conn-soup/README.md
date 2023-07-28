@@ -1,4 +1,4 @@
-# SOUP family codecs (3.6.0)
+# SOUP family codecs (3.8.1)
 
 ## Available service types
 
@@ -136,6 +136,20 @@ evolutionSupportEnabled: true
 ```
 
 ## Release notes
+
+### 3.8.1
++ Updated `saifish-core` version from `3.3.54` to `3.3.93`
+
+### 3.8.0
+
++ Updated `sailfish-core` version from `3.2.1741` to `3.3.54`
++ Updated `common` from `3.33.0` to `3.44.0`
+
+
+### 3.7.2
+
++ Update sailfish version to 3.2.1860
+  + Add declared message length check
 
 ### 3.7.0
 + Fixed decoding of EndOfSession messages

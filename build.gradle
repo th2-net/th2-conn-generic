@@ -1,15 +1,18 @@
 plugins {
     id 'com.palantir.docker' version '0.25.0' apply false
+    id 'java'
+    id "org.owasp.dependencycheck" version "8.1.2"
 }
 
 subprojects {
     apply plugin: 'base'
+    apply plugin: 'java'
     apply plugin: 'com.palantir.docker'
 
     ext {
         sharedDir                     = file("${project.rootDir}/shared")
-        baseSailfishVersion           = '3.2'
-        sailfishVersion               = "${baseSailfishVersion}.1748"
+        baseSailfishVersion           = '3.3'
+        sailfishVersion               = "${baseSailfishVersion}.93"
 
         pluginMainDir                 = file('src/main/plugin')
         pluginGenDir                  = file('src/gen/plugin')
@@ -49,6 +52,7 @@ subprojects {
             exclude module: 'sailfish-core'
             exclude module: 'sailfish-common'
         }
+
     }
 
     task pluginWriteVersion {
@@ -86,5 +90,16 @@ subprojects {
 
     clean {
         delete(pluginGenDir)
+    }
+}
+
+dependencyCheck {
+    formats=['SARIF', 'JSON', 'HTML']
+    failBuildOnCVSS=5
+
+    analyzers {
+        assemblyEnabled = false
+        nugetconfEnabled = false
+        nodeEnabled = false
     }
 }
