@@ -1,0 +1,24 @@
+name: Build and publish Docker dev-release distributions to Github Container Registry ghcr.io
+
+on:
+  push:
+    tags:
+      - \d+.\d+.\d+-dev
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        project:
+          - conn-fix
+          - conn-ntg
+          - conn-soup
+    uses: th2-net/.github/.github/workflows/matrix-java-docker.yml@main
+    with:
+      runsOn: ubuntu-20.04
+      projectName: ${{ matrix.project }}
+      build-target: 'Docker'
+      docker-username: ${{ github.actor }}
+      devRelease: true
+    secrets:
+      docker-password: ${{ secrets.GITHUB_TOKEN }}
