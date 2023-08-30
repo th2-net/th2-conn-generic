@@ -1,18 +1,25 @@
+import com.github.jk1.license.filter.LicenseBundleNormalizer
+import com.github.jk1.license.render.JsonReportRenderer
+
 plugins {
     id 'com.palantir.docker' version '0.25.0' apply false
-    id 'java'
-    id "org.owasp.dependencycheck" version "8.1.2"
+    id 'org.owasp.dependencycheck' version '8.3.1'
+    id 'com.gorylenko.gradle-git-properties' version '2.4.1' apply false
+    id 'com.github.jk1.dependency-license-report' version '2.5' apply false
+    id 'de.undercouch.download' version '5.4.0' apply false
 }
 
 subprojects {
     apply plugin: 'base'
-    apply plugin: 'java'
     apply plugin: 'com.palantir.docker'
+    apply plugin: 'com.github.jk1.dependency-license-report'
+    apply plugin: 'de.undercouch.download'
+    apply plugin: 'com.gorylenko.gradle-git-properties'
 
     ext {
         sharedDir                     = file("${project.rootDir}/shared")
         baseSailfishVersion           = '3.3'
-        sailfishVersion               = "${baseSailfishVersion}.93"
+        sailfishVersion               = "${baseSailfishVersion}.132"
 
         pluginMainDir                 = file('src/main/plugin')
         pluginGenDir                  = file('src/gen/plugin')
@@ -23,11 +30,6 @@ subprojects {
 
     repositories {
         maven {
-            name 'MavenLocal'
-            url sharedDir
-        }
-        mavenCentral()
-        maven {
             name 'Sonatype_snapshots'
             url 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
         }
@@ -35,9 +37,10 @@ subprojects {
             name 'Sonatype_releases'
             url 'https://s01.oss.sonatype.org/content/repositories/releases/'
         }
+        mavenCentral()
         mavenLocal()
 
-        configurations.all {
+        configurations.configureEach {
             resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
             resolutionStrategy.cacheDynamicVersionsFor 0, 'seconds'
         }
@@ -55,7 +58,17 @@ subprojects {
 
     }
 
-    task pluginWriteVersion {
+    gitProperties {
+        // git properties will be put in a map at project.ext.gitProps
+        // this is done to use in in the pluginWriteVersion task
+        extProperty = 'gitProps'
+    }
+    // make sure the generateGitProperties task always executes (even when git.properties is not changed)
+    generateGitProperties.outputs.upToDateWhen { false }
+
+    def pluginWriteVersion = tasks.register("pluginWriteVersion") {
+        dependsOn(generateGitProperties)
+
         outputs.file versionFile
         doLast{
             versionFile.write "lightweight: true\n" +
@@ -63,8 +76,8 @@ subprojects {
                               "name: th2_service\n" +
                               "build_number: 0\n" +
                               "revision: 0\n" +
-                              "git_hash: 0\n" +
-                              "branch: fake\n" +
+                              "git_hash: ${project.ext.gitProps['git.commit.id.abbrev']}\n" +
+                              "branch: ${project.ext.gitProps['git.branch']}\n" +
                               "version: ${baseSailfishVersion}.0.0\n" +
                               "core_version: ${baseSailfishVersion}.0"
         }
@@ -90,6 +103,29 @@ subprojects {
 
     clean {
         delete(pluginGenDir)
+    }
+
+    licenseReport {
+        def licenseNormalizerBundlePath = "$buildDir/license-normalizer-bundle.json"
+
+        if (!file(licenseNormalizerBundlePath).exists()) {
+            download.run {
+                src 'https://raw.githubusercontent.com/th2-net/.github/main/license-compliance/gradle-license-report/license-normalizer-bundle.json'
+                dest "$buildDir/license-normalizer-bundle.json"
+                overwrite false
+            }
+        }
+
+        configurations = ['runtimeClasspath', 'service']
+
+        filters = [
+                new LicenseBundleNormalizer(licenseNormalizerBundlePath, false)
+        ]
+        renderers = [
+                new JsonReportRenderer('licenses.json', false),
+        ]
+        excludeOwnGroup = false
+        allowedLicensesFile = new URL("https://raw.githubusercontent.com/th2-net/.github/main/license-compliance/gradle-license-report/allowed-licenses.json")
     }
 }
 
