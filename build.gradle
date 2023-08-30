@@ -10,7 +10,7 @@ plugins {
 }
 
 subprojects {
-    apply plugin: 'base'
+    apply plugin: 'java'
     apply plugin: 'com.palantir.docker'
     apply plugin: 'com.github.jk1.dependency-license-report'
     apply plugin: 'de.undercouch.download'
@@ -28,14 +28,46 @@ subprojects {
         dockerSailfishWorkspaceLibDir = "${dockerSailfishWorkspaceDir}/libs"
     }
 
+    ext.excludeSailfish = { rcd ->
+        rcd.excludeModuleByRegex("com\\.exactpro\\.sf", ".*")
+    }
+
     repositories {
         maven {
             name 'Sonatype_snapshots'
             url 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
+            content {
+                excludeSailfish(it)
+            }
+        }
+        // ignoreGradleMetadataRedirection is used for sonatype because
+        // Sailfish dependencies have constrains that interfere with our BOM
+        // so we exclude Gradle metadata for this repositories.
+        // We've checked these versions - they are compatible and safe to use
+        maven {
+            name 'Sonatype_snapshots'
+            url 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
+            metadataSources {
+                mavenPom()
+                artifact()
+                ignoreGradleMetadataRedirection()
+            }
         }
         maven {
             name 'Sonatype_releases'
             url 'https://s01.oss.sonatype.org/content/repositories/releases/'
+            content {
+                excludeSailfish(it)
+            }
+        }
+        maven {
+            name 'Sonatype_releases'
+            url 'https://s01.oss.sonatype.org/content/repositories/releases/'
+            metadataSources {
+                mavenPom()
+                artifact()
+                ignoreGradleMetadataRedirection()
+            }
         }
         mavenCentral()
         mavenLocal()
@@ -47,15 +79,17 @@ subprojects {
     }
 
     configurations {
-        service
-    }
-
-    dependencies {
-        service ("com.exactpro.sf:${sf_service_name}:${sailfishVersion}") {
+        service {
             exclude module: 'sailfish-core'
             exclude module: 'sailfish-common'
         }
+    }
 
+    dependencies {
+        service platform("com.exactpro.th2:bom:4.5.0") {
+            because('we need to fource dependnecies without vulnerabilities')
+        }
+        service "com.exactpro.sf:${sf_service_name}:${sailfishVersion}"
     }
 
     gitProperties {
