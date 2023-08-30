@@ -13,7 +13,7 @@ jobs:
           - conn-fix
           - conn-ntg
           - conn-soup
-    uses: th2-net/.github/.github/workflows/matrix-java-docker.yml@main
+    uses: th2-net/.github/.github/workflows/matrix-java-docker.yml@matrix-java
     with:
       runsOn: ubuntu-20.04
       projectName: ${{ matrix.project }}
