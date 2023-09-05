@@ -12,6 +12,7 @@ on:
 jobs:
   build:
     strategy:
+      fail-fast: false # because the OWASP scan that fails and cancels parallel runs
       matrix:
         proto:
           - conn-fix
