@@ -1,28 +1,25 @@
-name: Build and publish Docker distributions to Github Container Registry ghcr.io
+name: Build and publish Docker dev-release distributions to Github Container Registry ghcr.io
 
 on:
   push:
-    branches:
-    - master
-    - version-*
-    paths:
-    - gradle.properties
-#    - package_info.json
+    tags:
+      - \d+.\d+.\d+-dev
 
 jobs:
   build:
     strategy:
       fail-fast: false # because the OWASP scan that fails and cancels parallel runs
       matrix:
-        proto:
+        project:
           - conn-fix
           - conn-ntg
           - conn-soup
     uses: th2-net/.github/.github/workflows/matrix-java-docker.yml@main
     with:
       runsOn: ubuntu-20.04
-      projectName: ${{ matrix.proto }}
+      projectName: ${{ matrix.project }}
       build-target: 'Docker'
       docker-username: ${{ github.actor }}
+      devRelease: true
     secrets:
       docker-password: ${{ secrets.GITHUB_TOKEN }}
