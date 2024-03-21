@@ -144,7 +144,6 @@ evolutionSupportEnabled: true
 ## Release notes
 
 ### 3.8.2
-
 + Add new parameter `trimLeftPadding` to configure trimming of left whitespaces
 
 ### 3.8.1
