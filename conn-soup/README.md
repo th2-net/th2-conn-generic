@@ -60,6 +60,9 @@ heartbeatTimeout: 5
 
 # Maintains all the logical message parts together. If it is set to `true` they won't be split into different batches
 evolutionSupportEnabled: true
+
+# left whitespaces will be trimmed for all string values in the message
+trimLeftPadding: true
 ```
 
 ### OUCH client
@@ -111,6 +114,9 @@ heartbeatTimeout: 5
 
 # Maintains all the logical message parts together. If it is set to `true` they won't be split into different batches
 evolutionSupportEnabled: true
+
+# left whitespaces will be trimmed for all string values in the message
+trimLeftPadding: true
 ```
 
 ### MoldUDP64 client
@@ -136,6 +142,9 @@ evolutionSupportEnabled: true
 ```
 
 ## Release notes
+
+### 3.8.2
++ Add new parameter `trimLeftPadding` to configure trimming of left whitespaces
 
 ### 3.8.1
 + Updated `saifish-core` version from `3.3.54` to `3.3.93`
