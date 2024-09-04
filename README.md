@@ -1,4 +1,4 @@
-# Generic connects (4.0.2)
+# Generic connects (4.1.0)
 
 This project contains extensions for the base component "[Connect](https://github.com/th2-net/th2-conn)", which is responsible for
 supporting communication with the target system by using common protocols.
@@ -23,6 +23,12 @@ Each connect can support several service types and each one can have its own par
 You can find the description for the available service types and their configurable parameters within subprojects folder.
 
 ## Release notes
+
+### 4.1.0
+
++ Updated `th2-conn-sailfish` version from `4.0.1-dev` to `4.1.1-dev` (th2-common-j:5.14.0-dev)
++ Updated `sailfish-core` version from `3.3.132` to `3.3.241`
++ Updated `th2-bom` version from `4.5.0-dev` to `4.6.1-dev`
 
 ### 4.0.2
 

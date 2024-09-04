@@ -1,8 +1,8 @@
-FROM gradle:7.6-jdk11 AS build
+FROM gradle:8.7-jdk11 AS build
 COPY ./ .
 RUN gradle --no-daemon clean dockerPrepare
 
-FROM ghcr.io/th2-net/th2-conn-sailfish:4.0.1-dev
+FROM ghcr.io/th2-net/th2-conn-sailfish:4.1.1-dev
 ARG project_name
 WORKDIR /home
 COPY --from=build /home/gradle/${project_name}/build/docker .
