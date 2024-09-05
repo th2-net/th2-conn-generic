@@ -83,12 +83,6 @@ subprojects {
             exclude module: 'sailfish-core'
             exclude module: 'sailfish-common'
         }
-
-        configureEach.resolutionStrategy.dependencySubstitution {
-            substitute(module('org.apache.mina:mina-core:2.0.21'))
-                    .using(module('org.apache.mina:mina-core:2.0.25'))
-                    .because("vulnerability in transitive dependency in transitive dependency of sailfish 3.3.241")
-        }
     }
 
     dependencies {
@@ -170,6 +164,8 @@ subprojects {
 }
 
 dependencyCheck {
+    suppressionFile = file('suppressions.xml')
+
     formats=['SARIF', 'JSON', 'HTML']
     failBuildOnCVSS=5
 
