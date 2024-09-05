@@ -1,4 +1,4 @@
-# FIX Connect (4.0.1)
+# FIX Connect (4.1.0)
 
 This "Connect" component extension supports connections to the target system via [FIX protocol](https://www.fixtrading.org/what-is-fix/).
 
@@ -29,7 +29,7 @@ beginString: FIXT.1.1
 # It is a required parameter. Your ID that is associated with this FIX session.
 senderCompID: sender
 
-# It is a required parameter. Counter Parties ID that are associated with this FIX session.
+# It is a required parameter. Counterparty ID that are associated with this FIX session.
 targetCompID: target
 
 # It is a required parameter. Directory to store sequence number and message files inside the workspace directory.
@@ -357,6 +357,18 @@ defaultHeartbeatInterval: 5
 ```
 
 ## Release notes
+
+### 4.1.0
+
++ Updated `th2-conn-sailfish` version from `4.0.1-dev` to `4.1.1-dev` (th2-common-j:5.14.0-dev)
++ Updated `sailfish-core` version from `3.3.132` to `3.3.241`
++ Updated `th2-bom` version from `4.5.0-dev` to `4.6.1-dev`
+
+### 4.0.2
+
+#### Fixed:
+
++ Error when sending a message with EventID attached via transport protocol
 
 ### 4.0.1
 

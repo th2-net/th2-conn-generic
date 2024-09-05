@@ -1,4 +1,4 @@
-# SOUP family codecs (4.0.1)
+# SOUP family codecs (4.1.0)
 
 ## Available service types
 
@@ -136,6 +136,18 @@ evolutionSupportEnabled: true
 ```
 
 ## Release notes
+
+### 4.1.0
+
++ Updated `th2-conn-sailfish` version from `4.0.1-dev` to `4.1.1-dev` (th2-common-j:5.14.0-dev)
++ Updated `sailfish-core` version from `3.3.132` to `3.3.241`
++ Updated `th2-bom` version from `4.5.0-dev` to `4.6.1-dev`
+
+### 4.0.2
+
+#### Fixed:
+
++ Error when sending a message with EventID attached via transport protocol
 
 ### 4.0.1
 
